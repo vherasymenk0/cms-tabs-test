@@ -8,9 +8,7 @@ module.exports = {
   mode: isDevelopment ? 'development' : 'production',
   entry: './src/index.tsx',
   resolve: {
-    alias: {
-      src: path.resolve(__dirname, 'src'),
-    },
+    alias: { src: path.resolve(__dirname, 'src') },
     extensions: ['.tsx', '.ts', '.js'],
     modules: [path.resolve(__dirname), 'node_modules'],
   },
@@ -36,6 +34,24 @@ module.exports = {
             plugins: isDevelopment ? ['react-refresh/babel'] : [],
           },
         },
+      },
+      {
+        test: /\.(css|scss)$/,
+        include: [path.resolve('src')],
+        use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: isDevelopment,
+            },
+          },
+          {
+            loader: 'sass-loader',
+            options: { sourceMap: isDevelopment },
+          },
+        ],
       },
     ],
   },
