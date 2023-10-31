@@ -9,7 +9,7 @@ module.exports = {
   entry: './src/index.tsx',
   resolve: {
     alias: { src: path.resolve(__dirname, 'src') },
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ["*", ".js", ".jsx", ".ts", ".tsx"],    
     modules: [path.resolve(__dirname), 'node_modules'],
   },
   output: {
@@ -20,11 +20,6 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.tsx?$/,
-        use: 'ts-loader',
-        exclude: /node_modules/,
-      },
-      {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         use: {
@@ -34,6 +29,11 @@ module.exports = {
             plugins: isDevelopment ? ['react-refresh/babel'] : [],
           },
         },
+      },
+      { 
+        test: /\.(ts|tsx)$/, 
+        loader: "ts-loader",
+        exclude: /node_modules/,
       },
       {
         test: /\.(css|scss)$/,
