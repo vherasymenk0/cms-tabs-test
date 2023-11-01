@@ -1,5 +1,5 @@
 export type TabType = {
-  id: string
+  id: 'dummyTable' | 'dummyChart' | 'dummyList'
   title: string
   order: number
   path: string
