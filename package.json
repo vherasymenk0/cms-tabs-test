@@ -5,7 +5,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack serve --mode development --open --stats errors-only",
-    "build": "webpack --mode production",
+    "build": "webpack --mode production && node webpack/copyFiles.js",
     "start:build": "serve -s build",
     "lint": "eslint . --ext .ts,.tsx",
     "lint:fix": "eslint . --ext .ts,.tsx --fix",
@@ -34,6 +34,7 @@
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-prettier": "^5.0.1",
     "eslint-plugin-react": "^7.33.2",
+    "fs-extra": "^11.1.1",
     "html-webpack-plugin": "^5.5.3",
     "node-sass": "^9.0.0",
     "prettier": "^3.0.3",
