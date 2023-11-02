@@ -4,7 +4,7 @@ import Loader from 'src/components/Loader'
 import NotFoundRedirect from 'src/components/NotFoundRedirect'
 import { TabType } from 'src/types/shared'
 
-const TabItem = () => {
+const TabPage = () => {
   const { id } = useParams()
   const tabs: TabType[] = useOutletContext()
   const currentTab: TabType[] | [] = tabs.filter((tab) => tab.id === id)
@@ -20,4 +20,4 @@ const TabItem = () => {
   )
 }
 
-export default TabItem
+export default TabPage
